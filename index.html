@@ -12,13 +12,15 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            background-color: #f4f4f4;
+            /* background-color: #f4f4f4; */
+            background-image: url("./images/image3.jpeg");
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             padding: 20px;
             padding-top: 5px;
+            transition: background-image 1s ease-in-out;
         }
 
         .container {
@@ -427,6 +429,25 @@
             const popup = document.getElementById('popup');
             popup.style.display = 'none';
         }
+
+        const images = [
+            "./images/image1.jpeg",
+            "./images/image2.jpeg",
+            "./images/image3.jpeg",
+            "./images/image4.jpeg",
+            "./images/image5.jpeg",
+            "./images/image6.jpeg",
+            "./images/image7.jpeg"
+        ];
+
+        let currentIndex = 0;
+
+        function changeBackgroundImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            document.body.style.backgroundImage = `url(${images[currentIndex]})`;
+        }
+
+        setInterval(changeBackgroundImage, 2000);
     </script>
     <footer>
         <a href="https://github.com/ceeesh" target="_blank" rel="noopener noreferrer">@ceejaymalacas</a>
